@@ -1,0 +1,143 @@
+{
+  "voters": [
+    {
+      "id": "c2b3",
+      "name": "denis",
+      "email": "denisdelaki@gmail.com",
+      "phone": "0703103852",
+      "nationality": "Kenyan",
+      "id_number": "37506012",
+      "voted": true
+    },
+    {
+      "id": "353e",
+      "name": "Denis kipyegon",
+      "email": "denisdelaki@gmail.com",
+      "phone": "0703103852",
+      "nationality": "American",
+      "id_number": "7123457899",
+      "voted": true
+    },
+    {
+      "id": "1a46",
+      "name": "JOHN DOE",
+      "email": "denisdelaki@gmail.com",
+      "phone": "0703103852",
+      "nationality": "American",
+      "id_number": "7123457899",
+      "voted": true
+    },
+    {
+      "id": "8eb9",
+      "name": "sharbel",
+      "email": "denisdelaki@gmail.com",
+      "phone": "0703103852",
+      "nationality": "American",
+      "id_number": "7123457899",
+      "voted": true
+    }
+  ],
+  "candidates": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "votes": 122,
+      "nationality": 1,
+      "voter_id": [
+        "c2b3",
+        "b687"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "votes": 99,
+      "nationality": 2,
+      "voter_id": [
+        "4a9e",
+        "c2b3",
+        "353e",
+        "1a46"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Alice Johnson",
+      "votes": 82,
+      "nationality": 3,
+      "voter_id": [
+        "cbfa",
+        "ac5c",
+        "0dc9",
+        "353e"
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Bob Brown",
+      "votes": 154,
+      "nationality": 1,
+      "voter_id": [
+        "76ce",
+        "c2b3",
+        "353e",
+        "8eb9"
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Carol Williams",
+      "votes": 50,
+      "nationality": 2,
+      "voter_id": [
+        "2d12",
+        "b687",
+        "2c9d",
+        "1a46",
+        "8eb9"
+      ]
+    },
+    {
+      "id": "6",
+      "name": "David Miller",
+      "votes": 114,
+      "nationality": 3,
+      "voter_id": [
+        "76ce",
+        "2c9d",
+        "c2b3",
+        "8eb9"
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Emily Davis",
+      "votes": 70,
+      "nationality": 1,
+      "voter_id": 107
+    },
+    {
+      "id": "8",
+      "name": "Frank Moore",
+      "votes": 85,
+      "nationality": 2,
+      "voter_id": 108
+    },
+    {
+      "id": "9",
+      "name": "Grace Taylor",
+      "votes": 60,
+      "nationality": 3,
+      "voter_id": 109
+    },
+    {
+      "id": "10",
+      "name": "Henry Anderson",
+      "votes": 131,
+      "nationality": 1,
+      "voter_id": [
+        "c4d5"
+      ]
+    }
+  ]
+}
