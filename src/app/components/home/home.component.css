@@ -1,0 +1,18 @@
+.container{
+  margin: auto 20px;
+}
+.voted-true {
+    color: green;
+  }
+  
+  .voted-false {
+    color: red;
+  }
+
+  .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
