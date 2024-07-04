@@ -1,1 +1,19 @@
-<p>votes works!</p>
+<div class="votes-container">
+  <form [formGroup]="voteForm" (submit)="onVote()">
+    <mat-form-field>
+      <mat-label>Select Voter</mat-label>
+      <mat-select formControlName="voter">
+        <mat-option *ngFor="let voter of votersData" [value]="voter.id">{{ voter.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Select Candidate</mat-label>
+      <mat-select formControlName="candidate">
+        <mat-option *ngFor="let candidate of candidates()" [value]="candidate.id">{{ candidate.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="voteForm.invalid || hasVoted()">Cast Vote</button>
+  </form>
+</div>
