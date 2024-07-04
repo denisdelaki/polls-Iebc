@@ -1,1 +1,22 @@
-<p>results works!</p>
+<div *ngIf="sortedCandidates().length > 0">
+    <h2>Elections Results</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Votes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let candidate of sortedCandidates(); let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ candidate.name }}</td>
+          <td>{{ candidate.votes }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="sortedCandidates().length === 0">
+    <p>No candidates found.</p>
+  </div>
