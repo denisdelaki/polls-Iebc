@@ -7,7 +7,7 @@
       "phone": "0703103852",
       "nationality": "Kenyan",
       "id_number": "37506012",
-      "voted": true
+      "voted": false
     },
     {
       "id": "353e",
@@ -16,7 +16,7 @@
       "phone": "0703103852",
       "nationality": "American",
       "id_number": "7123457899",
-      "voted": true
+      "voted": false
     },
     {
       "id": "1a46",
@@ -25,7 +25,7 @@
       "phone": "0703103852",
       "nationality": "American",
       "id_number": "7123457899",
-      "voted": true
+      "voted": false
     },
     {
       "id": "8eb9",
@@ -34,6 +34,51 @@
       "phone": "0703103852",
       "nationality": "American",
       "id_number": "7123457899",
+      "voted": false
+    },
+    {
+      "id": "6f7e",
+      "name": "cheptoo",
+      "email": "d@gmail.com",
+      "phone": "0703103852",
+      "nationality": "American",
+      "id_number": "7123457899",
+      "voted": false
+    },
+    {
+      "id": "b743",
+      "name": "cyn",
+      "email": "denisdelaki@gmail.com",
+      "phone": "0703103852",
+      "nationality": "American",
+      "id_number": "0712345789",
+      "voted": true
+    },
+    {
+      "id": "ff11",
+      "name": "cynthia",
+      "email": "denisdelaki@gmail.com",
+      "phone": "0703103852",
+      "nationality": "American",
+      "id_number": "0712345789",
+      "voted": false
+    },
+    {
+      "id": "bca6",
+      "name": "Kimasinya",
+      "email": "p@gmail.com",
+      "phone": "0703103852",
+      "nationality": "American",
+      "id_number": "0712345789",
+      "voted": false
+    },
+    {
+      "id": "23c3",
+      "name": "philip",
+      "email": "p@gmail.com",
+      "phone": "0703103852",
+      "nationality": "American",
+      "id_number": "0712345789",
       "voted": true
     }
   ],
@@ -41,23 +86,25 @@
     {
       "id": "1",
       "name": "John Doe",
-      "votes": 122,
+      "votes": 123,
       "nationality": 1,
       "voter_id": [
         "c2b3",
-        "b687"
+        "b687",
+        "23c3"
       ]
     },
     {
       "id": "2",
       "name": "Jane Smith",
-      "votes": 99,
+      "votes": 100,
       "nationality": 2,
       "voter_id": [
         "4a9e",
         "c2b3",
         "353e",
-        "1a46"
+        "1a46",
+        "6f7e"
       ]
     },
     {
@@ -87,14 +134,15 @@
     {
       "id": "5",
       "name": "Carol Williams",
-      "votes": 50,
+      "votes": 51,
       "nationality": 2,
       "voter_id": [
         "2d12",
         "b687",
         "2c9d",
         "1a46",
-        "8eb9"
+        "8eb9",
+        "b743"
       ]
     },
     {

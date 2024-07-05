@@ -44,7 +44,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) {
     effect(() => {
       const now= this.currentTime()
-      const deadline = new Date(this.votingDeadline().toISOString());
+      //update the current time every 1 second
+      // setInterval(()=>{
+      //   this.currentTime.set(new Date());
+      // }, 3000)
+      const deadline = new Date(this.votingDeadline());
       console.log("deadline",deadline);
       console.log("now",now);
       const remainingTime = deadline.getTime() - now.getTime();
@@ -77,7 +81,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     //get the voters data
-
+    this.service.getVoters().pipe(takeUntil(this.destroy$)).subscribe(data => {
+      this.votersData.set(data);
+    });
   }
 
   ngOnDestroy(): void {
@@ -92,8 +98,18 @@ export class HomeComponent implements OnInit, OnDestroy {
       width: '450px',
     });
 
- 
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.onVoterAdded(result);
+      }
+    });
+
     }
+
+    onVoterAdded(newVoter: Voter): void {
+      this.votersData.update((prevVoters) => [...prevVoters, newVoter]);
+    }
+    
   //displayed columns 
   displayedColumns: string[] = ['position', 'name', 'ID', 'voted']
 

@@ -15,8 +15,8 @@ import { Vote } from '../../interfaces/vote';
   styleUrls: ['./votes.component.css']
 })
 export class VotesComponent implements OnInit {
-  @Input() votersData: Voter[] = [];
- candidates=signal<Candidates[]>([]);
+  @Input() votersData = signal<Voter[]>([]);
+   candidates=signal<Candidates[]>([]);
   voteForm: FormGroup;
 
   constructor(
@@ -41,7 +41,7 @@ export class VotesComponent implements OnInit {
 
   ngOnInit(): void {
     this.candidates().filter(candidate => candidate.voter_id.length < 5);
-    this.votersData = this.votersData.filter(voter => !voter.voted);
+   this.votersData().filter(voter => !voter.voted);
   }
 
   hasVoted(): boolean {
@@ -55,40 +55,45 @@ export class VotesComponent implements OnInit {
   
   
 
-  onVote() {
-    const voterId = this.voteForm.get('voter')?.value;
-    const candidateId = this.voteForm.get('candidate')?.value;
-
-    // Update the voter's voted status
-    const voter = this.votersData.find(voter => voter.id === voterId);
-    if (voter) {
-      voter.voted = true;
-      this.service.updateVoter(voter).subscribe();
+    onVote() {
+      const voterId = this.voteForm.get('voter')?.value;
+      const candidateId = this.voteForm.get('candidate')?.value;
+  
+      // Update the voter's voted status
+      const voter = this.votersData().find(voter => voter.id === voterId);
+      if (voter) {
+        voter.voted = true;
+        this.service.updateVoter(voter).subscribe(() => {
+          // Update the signal
+          this.votersData.update(voters => voters.map(v => v.id === voter.id ? voter : v));
+        });
+      }
+  
+      // Update the candidate's votes and voter_id array
+      const candidate = this.candidates().find(candidate => candidate.id === candidateId);
+      if (candidate) {
+        candidate.votes += 1;
+  
+        if (!Array.isArray(candidate.voter_id)) {
+          candidate.voter_id = [];
+        }
+  
+        candidate.voter_id.push(voterId);
+  
+        this.service.updateCandidate(candidate).subscribe(() => {
+          this.snackBar.open('Vote cast successfully!', 'Close', { duration: 2000 });
+  
+          // Update the signal
+          this.candidates.update(candidates => candidates.map(c => c.id === candidate.id ? candidate : c));
+  
+          // Remove the voter from the form options after voting
+          this.votersData.update(voters => voters.filter(v => v.id !== voterId));
+  
+          // Reset the form
+          this.voteForm.reset();
+        });
+      }
     }
-
-    // Update the candidate's votes and voter_id array
-    const candidate = this.candidates().find(candidate => candidate.id === candidateId);
-    if (candidate) {
-      candidate.votes += 1;
-    // Ensure voter_id is an array
-    if (!Array.isArray(candidate.voter_id)) {
-      candidate.voter_id = [];
-    }
-
-    candidate.voter_id.push(voterId);
-
-    this.service.updateCandidate(candidate).subscribe(() => {
-        this.snackBar.open('Vote cast successfully!', 'Close', { duration: 2000 });
-
-        // Remove the voter from the form options after voting
-        this.votersData = this.votersData.filter(v => v.id !== voterId);
-
-        // Reset the form
-        this.voteForm.reset();
-      });
-    }
-
-  }
 
 }
 
